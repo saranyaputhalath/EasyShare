@@ -11,7 +11,7 @@ namespace DALEasyShare
     public static class DataAccess
     {
         public static string ConnectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=EasyShare;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        public static List<string> GetAllCategory()
+        public static DataTable GetAllCategory()
         {
             List<string> category = new List<string>();
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -29,13 +29,10 @@ namespace DALEasyShare
                     {
                         var tb = new DataTable();
                         tb.Load(dr);
-
-                        category = (from row in tb.AsEnumerable()
-                                          select row.Field<string>("Column Name")).ToList<string>();
+                        return tb;
                     }
                 }
             }
-            return category;
         }
 
         public static DataTable GetAllGroupsDetailByUserId(int userId)
