@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "AddGroup";
+}
+
+<h2>AddGroup</h2>
+@*<form id="groupForm" method="post" action="api/AddGroup" >*@
+    <br /><br />
+    Group Name : <input type="text" id="groupName" />
+    <br />
+    <br />
+
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">User Details</h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+                <span class="table-add float-right mb-3 mr-2">
+                    <a href="#!" class="text-success">
+                        <i class="fa fa-plus fa-2x" aria-hidden="true"> Add </i>
+                    </a>
+                </span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <tr>
+                        <th class="text-center">User Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Mobile #</th>
+                        <th class="text-center">Remove</th>
+                    </tr>
+                    <tr>
+                        <td class="pt-3-half" contenteditable="true"></td>
+                        <td class="pt-3-half" contenteditable="true"></td>
+                        <td class="pt-3-half" contenteditable="true"></td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                        </td>
+                    </tr>
+                    <tr class="hide">
+                        <td class="pt-3-half" contenteditable="true"></td>
+                        <td class="pt-3-half" contenteditable="true"></td>
+                        <td class="pt-3-half" contenteditable="true"></td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" name="Submit" value="Submit" onclick="SubmitGroup()" />
+@*</form>*@
+<script>
+    function SubmitGroup() {
+        $.ajax({
+            type: "POST",
+            url: "localhost:44375/api/group",
+            data: { groupName: "Hello" },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                console.log('test');
+            }
+        });
+    }
+</script>
+
