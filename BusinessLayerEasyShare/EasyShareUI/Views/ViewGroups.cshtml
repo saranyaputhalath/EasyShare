@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "https://localhost:44375/api/values/GetAllGroupsDetailByUserId",
+                type: "Get",
+                success: function (data) {
+                    for (var key in dict) {
+                        var value = dict[key];
+
+
+
+                        // do something with "key" and "value" variables
+
+                    }
+                },
+                error: function (msg) { alert(msg); }
+            });
+        });
+    </script>
+    <div>
+
+    </div>
+</body>
+</html>

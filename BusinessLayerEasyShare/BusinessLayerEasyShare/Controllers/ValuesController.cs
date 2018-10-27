@@ -44,7 +44,7 @@ namespace BusinessLayerEasyShare.Controllers
         {
         }
 
-        // GET api/values/GetAllCategory
+        //// GET api/values/GetAllCategory
         [HttpGet]
         public ActionResult<List<CategoryDetail>> GetAllCategory()
         {
@@ -62,6 +62,40 @@ namespace BusinessLayerEasyShare.Controllers
                 }
 
                 return categoryDetails;
+            }
+            catch (Exception ex)
+            {
+                //log the error for debugging
+                return null;
+            }
+        }
+
+        // GET api/values/GetAllGroupsDetailByUserId
+        [HttpGet]
+        public ActionResult<Dictionary<int, GroupDetail>> GetAllGroupsDetailByUserId(int userId)
+        {
+            try
+            {
+                Dictionary<int, GroupDetail> groupDetails = new Dictionary<int, GroupDetail>();
+                DataTable data = DALEasyShare.DataAccess.GetAllGroupsDetailByUserId(userId);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    if (groupDetails.ContainsKey(Convert.ToInt32(row["GroupId"])))
+                    {
+                        groupDetails[Convert.ToInt32(row["GroupId"])].TotalSpendInGroup += Convert.ToDecimal(row["Amount"]);
+                    }
+                    else
+                    {
+                        GroupDetail group = new GroupDetail();
+                        group.GroupName = row["GroupName"].ToString();
+                        group.TotalSpendInGroup = Convert.ToDecimal(row["Amount"]);
+
+                        groupDetails.Add(Convert.ToInt32(row["GroupId"]), group);
+                    }
+                }
+
+                return groupDetails;
             }
             catch (Exception ex)
             {

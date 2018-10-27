@@ -1,7 +1,7 @@
 ﻿USE [EasyShare]
 GO
 
-/****** Object: SqlProcedure [dbo].[GetAllCategoryNames] Script Date: 10/27/2018 3:18:51 PM ******/
+/****** Object: SqlProcedure [dbo].[GetAllCategoryNames] Script Date: 10/27/2018 4:38:34 PM ******/
 SET ANSI_NULLS ON
 GO
 
