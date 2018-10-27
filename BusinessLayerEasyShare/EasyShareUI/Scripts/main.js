@@ -9,3 +9,4 @@ $('.table-add').click(function () {
 $('.table-remove').click(function () {
     $(this).parents('tr').remove();
 });
+

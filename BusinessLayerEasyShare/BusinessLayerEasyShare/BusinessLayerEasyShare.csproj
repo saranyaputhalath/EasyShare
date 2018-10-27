@@ -19,4 +19,8 @@
     <ProjectReference Include="..\EntityEasyShare\EntityEasyShare.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DALEasyShare\DALEasyShare.csproj" />
+  </ItemGroup>
+
 </Project>

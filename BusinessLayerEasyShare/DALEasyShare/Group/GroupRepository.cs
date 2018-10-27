@@ -12,6 +12,7 @@ namespace DALEasyShare.Group
     public class GroupRepository
     {
 
+
         public void CreateGroup(string groupName, List<UserEntity> users)
         {
             using (SqlConnection con = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = EasyShare; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False"))

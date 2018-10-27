@@ -15,6 +15,7 @@ namespace EasyShareUI.Controllers
         }
         public ActionResult AddGroup()
         {
+
             //asd.cre
             return View();
         }
